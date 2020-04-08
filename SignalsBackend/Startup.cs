@@ -14,7 +14,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 
-namespace Blog
+namespace SignalsBackend
 {
     public class Startup
     {

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SignalsBackend.Data;
 
-namespace Blog
+namespace SignalsBackend
 {
 	public class Program
 	{

@@ -14,7 +14,7 @@ namespace SignalsBackend.Data
         private static BitcoinData instance = null;
         private static readonly object padlock = new object();
         private static DateTime lastCall = new DateTime();
-        private static List<Trade> ChartData = new List<Trade>();
+        private static Trade[] ChartData = new Trade[] { };
         private static string url = "http://api.bitcoincharts.com/v1/trades.csv?symbol=krakenUSD";
         private static string urlParameters = "?api_key=123";
 
@@ -37,7 +37,7 @@ namespace SignalsBackend.Data
             }
         }
 
-        public List<Trade> GetData
+        public Trade[] GetData
         {
             get
             {
@@ -55,8 +55,7 @@ namespace SignalsBackend.Data
                         //responsas to string
                         string responseBody = response.Content.ReadAsStringAsync().Result;
                         lastCall = DateTime.Now;
-                        ChartData = responseBody.Select(v => Trade.FromCsv(responseBody))
-                                           .ToList();
+                        ChartData = responseBody.Split("\n").Select(v => Trade.FromCsv(v)).ToArray();
                         return ChartData;
                     }
                 }

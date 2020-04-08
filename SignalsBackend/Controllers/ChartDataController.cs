@@ -17,10 +17,9 @@ namespace SignalsBackend.Controllers
 
         // GET: api/ChartData
         [HttpGet]
-        public async Task<IActionResult> GetChartData()
+        public Trade[] GetChartData()
         {
-            List<Trade> trades = BitcoinData.Instance.GetData;
-            return Ok(trades);
+            return BitcoinData.Instance.GetData;
         }
     }
 }

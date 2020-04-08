@@ -18,8 +18,8 @@ namespace SignalsBackend.Models
             string[] values = csvLine.Split(',');
             Trade trade = new Trade();
             trade.Time = UnixTimeStampToDateTime(Convert.ToDouble(values[0]));
-            trade.Price = Convert.ToInt32(values[1]);
-            trade.Amount = Convert.ToInt32(values[2]);
+            trade.Price = Convert.ToInt32(Convert.ToDecimal(values[1]));
+            trade.Amount = Convert.ToInt32(Convert.ToDecimal(values[2]));
             return trade;
         }
 
